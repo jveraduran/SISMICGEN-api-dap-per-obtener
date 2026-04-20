@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+  annotations:
+    "finops.harness.io/git-repo": "https://github.com/TU-USUARIO/SISMICGEN-api-dap-per-obtener.git"
+    "finops.harness.io/values-path": "helm/api-dap-per-obtener/values.yaml"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          # Inyección de los recursos desde el values.yaml
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
