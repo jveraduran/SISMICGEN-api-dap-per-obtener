@@ -1,15 +1,13 @@
 # values.yaml
 replicaCount: 1
-
 image:
   repository: mi-registro/api-dap-per-obtener-1
   tag: "1.0.0"
-
 # --- BLOQUE FINOPS (El objetivo de nuestro script) ---
 resources:
   limits:
-    cpu: 300m
-    memory: 550Mi
+    cpu: 100m
+    memory: 297M
   requests:
-    cpu: 300m
-    memory: 550Mi
+    cpu: 25m
+    memory: 297M
