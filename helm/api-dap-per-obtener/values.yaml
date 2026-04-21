@@ -1,14 +1,12 @@
 # values.yaml
 replicaCount: 1
-
 image:
   repository: mi-registro/api-dap-per-obtener-1
   tag: "1.0.0"
-
 resources:
   limits:
-    cpu: 300m
-    memory: 550Mi
+    cpu: 100m
+    memory: 411M
   requests:
-    cpu: 300m
-    memory: 550Mi
+    cpu: 25m
+    memory: 380M
